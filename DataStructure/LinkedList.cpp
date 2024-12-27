@@ -45,6 +45,39 @@ class LinkedList {
         return true;
     }
 
+    void insertHead(int data) {
+        if (!head) {
+            head = new Node(data, nullptr);
+        }
+        else {
+            Node* newNode = new Node(data, head);
+            head = newNode; 
+        }
+    }
+
+    bool insertPosition(int data, int pos) {
+        if (pos == 0) {
+            insertHead(data);
+            return true;
+        }
+
+        int count = 0; 
+        Node* prev = head; 
+
+        while(count < pos - 1 && prev != nullptr) {
+            prev = prev->next; 
+            count++;
+        } 
+
+        if (prev == nullptr) {
+            return false; 
+        }
+
+        Node* newNode = new Node(data, prev->next);
+        prev->next = newNode; 
+        return true;
+    }
+
     bool remove(int data) {
         if (!head) {
             return false;
@@ -70,11 +103,19 @@ class LinkedList {
 
     bool search(int data) {
         if (head) {
+            int count = 0;
             Node* curr = head; 
-            if (curr->data == data) return true;
+            if (curr->data == data) {
+                std::cout<< count << std::endl; 
+                return true;
+            }
             while (curr->next) {
+                count++; 
                 curr = curr->next;
-                if (curr->data == data) return true;
+                if (curr->data == data) {
+                    std::cout << count << std::endl; 
+                    return true;
+                }
             }
         }
         return false;
@@ -98,6 +139,8 @@ int main() {
     // std::cout << test.remove(2) << std::endl;
     // test.traversal();
     std::cout << test.remove(5) << std::endl;
+    test.traversal();
+    std::cout << test.insertPosition(5,5) << std::endl;
     test.traversal();
     return 0;
 }
