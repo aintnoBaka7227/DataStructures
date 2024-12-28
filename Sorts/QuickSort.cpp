@@ -1,6 +1,14 @@
 #include <iostream>
 #include <vector> 
-#include <algorithm> 
+#include <algorithm>
+
+// Quicksort Complexity
+// Time Complexity	 
+// Best	                O(nlog n)               Pivot is the middle element -> 2 equal sub-arrays -> log2(n) height
+// Worst	            O(n^2)                  Pivot is the biggest or smallest -> cannot split to 2 good sub-arrays (one is empty, one has n-1 elements)
+// Average	            O(nlog n)               
+// Space Complexity	    O(log n)                Recursion -> space = height
+// Stability	        No
 
 int partition(int array[], int p, int r) {
     int pivot = array[r];

@@ -1,6 +1,17 @@
 #include <iostream> 
 #include <vector> 
 
+// Merge Sort Complexity
+// Time Complexity	 
+// Best	                O(n*log n)
+// Worst	            O(n*log n)
+// Average	            O(n*log n)
+// Space Complexity	    O(n)
+// Stability	        Yes
+
+// O(log_2(n)) level that need merge
+// O(n) merging process (each level has n element)
+
 void merge(int arr[], int p, int q, int r) {
     int n1 = q - p + 1; 
     int n2 = r - q; 

@@ -1,6 +1,18 @@
 #include <iostream> 
 #include <vector> 
 
+// Insertion sort in C++
+
+// traverse through all elements, compare with each other to the left and insert in a suitable position (move all element to the right 1 step)
+
+// Insertion Sort Complexity
+// Time Complexity	 
+// Best	                O(n)            sorted (inner loop does not run)
+// Worst	            O(n^2)          reversely sorted
+// Average	            O(n^2)          random
+// Space Complexity	    O(1)            variable key
+// Stability	        Yes
+
 std::vector<int> insertionSort(std::vector<int> arr) {
     // start from index 1
     for (int i = 1; i < arr.size(); i++) {

@@ -1,6 +1,17 @@
 #include <iostream>
 #include <climits>
 
+/*
+Important Points:  
+
+Like quicksort, it is fast in practice, but has poor worst-case performance.
+The partition process is same as QuickSort, only recursive code differs since rather than recurs on both side, pick one depend on k.
+There exists an algorithm that finds k-th smallest element in O(n) in worst case, but QuickSelect performs better on average.  
+
+Time Complexity : O(n^2) in the worst case, but on average works in O(n) time and performs better than priority queue based algorithm O(n).
+Auxiliary Space : O(n) for recursion call stack in worst case. On average : O(Log n)
+*/
+
 int partition(int array[], int p, int r) {
     int pivot = array[r];
     int i = p - 1; 

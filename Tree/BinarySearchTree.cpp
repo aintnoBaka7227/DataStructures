@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector> 
 
+// a tree where node in the left subtree is always smaller than root and vice versa
+// operations time: o(h) h: height of the tree
+
 class Node {
     private: 
     friend class BinaryTree; 
@@ -65,6 +68,7 @@ class BinaryTree {
                     }
                     delete temp;
                 }
+                // two child -> swap with the largest in the left subtree
                 else {
                     Node* temp = max(root->left); 
                     root->data = temp->data; 

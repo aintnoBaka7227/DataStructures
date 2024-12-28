@@ -3,6 +3,9 @@
 #include <string>
 #include <sstream>
 
+// a balance binary search tree where the different between the height of the left and right subtree must <= 1
+// Time complexity: o(logn) in all operations due to height is always guaranteed to be O(logn)
+
 class Node {
     private:
     int element;

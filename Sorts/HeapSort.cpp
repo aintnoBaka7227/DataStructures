@@ -1,8 +1,20 @@
 #include <iostream> 
 #include <vector> 
 
-//using max heap 
+// Heap Sort in C++
 
+// Heap Sort Complexity
+// Time Complexity	 
+// Best	                    O(nlog n)
+// Worst	                O(nlog n)
+// Average	                O(nlog n)
+// Space Complexity	        O(1)
+// Stability	            No
+
+// During the sorting step, we exchange the root element with the last element and heapify the root element. For each element, this again takes log n worst time 
+// because we might have to bring the element all the way from the root to the leaf. Since we repeat this n times, the heap_sort step is also nlog n.
+
+//using max heap 
 // heapify bottom up for max heap
 void maxHeapify(std::vector<int> &array, int n, int i) {
     int largest = i;

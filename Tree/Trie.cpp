@@ -3,6 +3,7 @@
 #include <iostream>
 
 /********************************************************************\
+- store and retrieve data based on prefix-searching
 
 Complexity of inserting and searching
 - Time Complexity: O(number of words * maxLengthOfWord)
