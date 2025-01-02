@@ -2,6 +2,8 @@
 #include <sstream> 
 #include <algorithm>
 
+// run time: O(mlogm) cost from sort m edges. 
+
 int char_to_cost(char c) {
     if ('A' <= c && 'Z' >= c) {
         return c - 'A';

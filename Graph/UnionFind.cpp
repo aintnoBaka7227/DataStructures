@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+//total runtime: O(m+nlogn)
+
 class Union {
     private:
     std::vector<int> parent;
@@ -13,14 +15,14 @@ class Union {
             rank.push_back(1);
         }
     } 
-
+    // time complexity: O(m) for 2m find operations being called
     int find(int i) {
         if (parent[i] == -1) {
             return i;
         }
         return parent[i] = find(parent[i]);
     }
-
+    // time complexity: O(nlogn) for n-1 union operations
     void unite(int x, int y) {
         int s1 = find(x);
         int s2 = find(y);
