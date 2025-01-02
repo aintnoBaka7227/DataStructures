@@ -16,6 +16,11 @@ using namespace std;
 // lower discovery time to U 
 // or ancestors of U  (UV not part of any cycle)
 
+// in summation, we dfs u -> v, check if v is checked or not. if yes, we update, if no, we dfs its till an end is reach or meet an ancestor. then we update low[v]. 
+// by doing this, we effectively track down the min time to discover v, based on its neighbors (can be undiscovered or ancestors), and compare it with disc[u] to 
+// see if there exists a back path to u (lower discovery time). start point u will be iterated from the nodes, and is decided based on whether it is visited or not. 
+// this ensure that we only need to dfs once , reduce the time complexity to V+E 
+
 // adj[u] = adjacent nodes of u
 // disc[u] = discovery time of u
 // low[u] = 'low' node of u
@@ -39,8 +44,8 @@ class Graph {
         // increment Time for next discovery 
         low[u] = disc[u] = ++Time;
 
-        for (auto i = adj[u].begin(); i != adj[u].end(); ++i) {
-            int v = *i;
+        for (auto v : adj[u]) {
+            // v is neighbor of u
             // avoid going back the same path 
             if (v == parent) {
                 continue;
@@ -52,7 +57,9 @@ class Graph {
             }
             // not discovered yet
             else {
+                // set its parent to u
                 parent = u;
+                // dfs 
                 bridgeDFS(v, parent, visited, disc, low);
                 // low[v] might be ancestor of u
                 low[u] = min(low[u], low[v]);
